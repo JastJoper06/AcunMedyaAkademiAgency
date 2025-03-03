@@ -1,0 +1,47 @@
+﻿@model List<AcunMedyaAkademiAgency.Entities.About>
+@{
+	ViewBag.Title = "AboutList";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+	int count = 0;
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Hakkımda Sayfası</h4>
+			<p class="card-description">
+				Hakkımda işlemlerini burdan yapınız.
+			</p>
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Başlık</th>
+							<th>Resim</th>
+							<th>Açıklaması</th>
+							<th>Sil</th>
+							<th>Güncelle</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							count++;
+							<tr>
+								<td>@count</td>
+								<td>@item.Title</td>
+								<td><img src="@item.ImageUrl" style="width:75px; height:75px;" alt="Hizmet Görseli" /></td>
+								<td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="@item.Description">@item.Description</td>
+								<td><a class="btn btn-danger" href="/About/DeleteAbout/@item.AboutId"><i class="fa fa-trash">Sil</i></a></td>
+								<td><a class="btn btn-success" href="/About/UpdateAbout/@item.AboutId"><i class="fa fa-pencil">Güncelle</i></a></td>
+							</tr>
+						}
+					</tbody>
+				</table>
+				<br />
+				<a href="/About/CreateAbout" class="btn btn-info"><i class="mdi mdi-file-check btn-icon-append">Yeni Hakkımda Giriniz</i></a>
+			</div>
+		</div>
+	</div>
+</div>

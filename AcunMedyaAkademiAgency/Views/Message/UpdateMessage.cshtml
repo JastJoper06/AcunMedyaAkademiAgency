@@ -1,0 +1,53 @@
+﻿@model AcunMedyaAkademiAgency.Entities.Message
+@{
+	ViewBag.Title = "UpdateMessage";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Mesaj Güncelleme Sayfası</h4>
+			<p class="card-description">Mesaj güncelleme işlemlerini buradan yapınız.</p>
+			<form class="forms-sample" method="post">
+				<div class="form-group">
+					<label for="MessageId">Id</label>
+					@Html.TextBoxFor(x => x.MessageId, new { @class = "form-control", @readonly = "readonly" })
+				</div>
+				<div class="form-group">
+					<label for="NameSurname">Ad Soyad</label>
+					@Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
+				</div>
+				<div class="form-group">
+					<label for="Email">Email</label>
+					@Html.TextBoxFor(x => x.Email, new { @class = "form-control", @type = "email" })
+				</div>
+				<div class="form-group">
+					<label for="Title">Başlık</label>
+					@Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+				</div>
+				<div class="form-group">
+					<label for="Description">Açıklama</label>
+					@Html.TextAreaFor(x => x.Description, new { @class = "form-control", rows = "4" })
+				</div>
+				<div class="form-group">
+					<label for="SendDate">Gönderim Tarihi</label>
+					@Html.EditorFor(x => x.SendDate, new { htmlAttributes = new { @class = "form-control", @type = "datetime-local" } })
+				</div>
+				<div class="form-group">
+					<label for="IsRead">Gönderim Durumu</label><br />
+					<div class="form-check form-check-inline">
+						@Html.RadioButtonFor(x => x.IsRead, true, new { @class = "form-check-input", id = "isReadTrue" })
+						<label class="form-check-label" for="isReadTrue">Okundu</label>
+					</div>
+					<div class="form-check form-check-inline">
+						@Html.RadioButtonFor(x => x.IsRead, false, new { @class = "form-check-input", id = "isReadFalse" })
+						<label class="form-check-label" for="isReadFalse">Okunmadı</label>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary mr-2"> Güncelle </button>
+				<button class="btn btn-light">Vazgeç</button>
+			</form>
+		</div>
+	</div>
+</div>

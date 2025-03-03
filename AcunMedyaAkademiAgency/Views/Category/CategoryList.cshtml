@@ -1,0 +1,44 @@
+﻿@model List<AcunMedyaAkademiAgency.Entities.Category>
+
+@{
+	ViewBag.Title = "CategoryList";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+	int count = 0;
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Kategori Sayfası</h4>
+			<p class="card-description">
+				Kategori işlemlerini burdan yapınız.
+			</p>
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Kategori Adı</th>
+							<th>Sil</th>
+							<th>Güncelle</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							count++;
+							<tr>
+								<td>@count</td>
+								<td>@item.CategoryName</td>
+								<td><a class="btn btn-danger" href="/Category/DeleteCategory/@item.CategoryId"><i class="fa fa-trash">Sil</i></a></td>
+								<td><a class="btn btn-success" href="/Category/UpdateCategory/@item.CategoryId"><i class="fa fa-pencil">Güncelle</i></a></td>
+							</tr>
+						}
+					</tbody>
+				</table>
+				<br />
+				<a href="/Category/CreateCategory" class="btn btn-info"><i class="mdi mdi-file-check btn-icon-append">Yeni Kategori Giriniz</i></a>
+			</div>
+		</div>
+	</div>
+</div>

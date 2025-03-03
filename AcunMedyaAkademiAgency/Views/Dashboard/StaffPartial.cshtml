@@ -1,0 +1,48 @@
+﻿@model List<AcunMedyaAkademiAgency.Entities.Team>
+
+<div class="col-xl-8 col-sm-6 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body px-0 overflow-auto">
+			<h4 class="card-title pl-4">Personel Bilgileri</h4>
+			<div class="table-responsive">
+				<table class="table">
+					<thead class="bg-light">
+						<tr>
+							<th>Ad Soyad</th>
+							<th>Bölüm</th>
+							<th>Cinsiyet</th>
+							<th>Şehir</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							<tr>
+								<td>
+									<div class="d-flex align-items-center">
+										<img src="@item.ImageUrl" alt="image" />
+										<div class="table-user-name ml-3">
+											<p class="mb-0 font-weight-medium">@item.NameSurname </p>
+										</div>
+									</div>
+								</td>
+								<td>@item.Branches.BranchId</td>
+								<td>
+									@if (item.Gender == "Kadın")
+									{
+										<div class="badge badge-inverse-success"> @item.Gender </div>
+									}
+									@if (item.Gender == "Erkek")
+									{
+										<div class="badge badge-inverse-success"> @item.Gender </div>
+									}
+								</td>
+								<td>@item.City</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

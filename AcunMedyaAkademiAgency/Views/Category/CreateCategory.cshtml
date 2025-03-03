@@ -1,0 +1,17 @@
+﻿@model AcunMedyaAkademiAgency.Entities.Category
+@{
+	ViewBag.Title = "CreateCategory";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-3">
+	<h2 class="mb-3">Kategori Ekleme Sayfası</h2>
+
+	<form method="post" class="w-50">
+		<div class="form-group mb-3">
+			<label class="form-label">Kategori Adı</label>
+			<input type="text" class="form-control" name="CategoryName" />
+		</div>
+		<button type="submit" class="btn btn-danger w-100">Kategoriyi Kaydet</button>
+	</form>
+</div>  

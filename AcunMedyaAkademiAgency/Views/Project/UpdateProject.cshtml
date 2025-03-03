@@ -1,0 +1,31 @@
+﻿@model AcunMedyaAkademiAgency.Entities.Project
+@{
+	ViewBag.Title = "UpdateProject";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Hizmet Güncelleme Sayfası</h4>
+			<p class="card-description">Hizmet güncelleme işlemlerini buradan yapınız.</p>
+			<form class="forms-sample" method="post">
+				@Html.HiddenFor(x => x.ProjectId) <!-- ProjectId gizli alan olarak gönderiliyor -->
+				<div class="form-group">
+					<label for="exampleInputName1">Proje Adı</label>
+					@Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+				</div>
+				<div class="form-group">
+					<label for="exampleInputCity1">Resim Yolu</label>
+					@Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+				</div>
+				<div class="form-group">
+					<label for="exampleInputName1">Proje Kategorisi</label>
+					@Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.v, "Kategori Seçiniz", new { @class = "form-control" })
+				</div>
+				<button type="submit" class="btn btn-primary mr-2">Güncelle</button>
+				<button type="button" class="btn btn-light" onclick="window.location.href='@Url.Action("ProjectList")'">Vazgeç</button>
+			</form>
+		</div>
+	</div>
+</div>

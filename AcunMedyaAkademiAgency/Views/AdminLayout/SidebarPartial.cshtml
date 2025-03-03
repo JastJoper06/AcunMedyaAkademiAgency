@@ -1,0 +1,87 @@
+﻿<nav class="sidebar sidebar-offcanvas" id="sidebar">
+	<div class="text-center sidebar-brand-wrapper d-flex align-items-center">
+		<a class="sidebar-brand brand-logo" href="/Default/index"><img src="/Templates/Breeze-Free-Bootstrap-Admin-Template-1.0.0/template/assets/images/logo.svg" alt="logo" /></a>
+		<a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="/Default/index"><img src="/Templates/Breeze-Free-Bootstrap-Admin-Template-1.0.0/template/assets/images/logo-mini.svg" alt="logo" /></a>
+	</div>
+	<ul class="nav">
+		<li class="nav-item nav-profile">
+			<a href="#" class="nav-link">
+				<div class="nav-profile-image">
+					<img src="https://i.hizliresim.com/hzgq479.jpg" alt="profile" />
+					<span class="login-status online"></span>
+					<!--change to offline or busy as needed-->
+				</div>
+				<div class="nav-profile-text d-flex flex-column pr-3">
+					<span class="font-weight-medium mb-2">@ViewBag.profile</span>
+					<span class="font-weight-normal"></span>
+				</div>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="/Dashboard/Index">
+				<i class="mdi mdi-home menu-icon"></i>
+				<span class="menu-title">Dashboard</span>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="/Category/CategoryList">
+				<i class="mdi mdi-crosshairs-gps menu-icon"></i>
+				<span class="menu-title">Kategoriler</span>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="/Feature/FeatureList">
+				<i class="mdi mdi-contacts menu-icon"></i>
+				<span class="menu-title">Öne Çıkanlar</span>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="/Service/ServiceList">
+				<i class="mdi mdi-format-list-bulleted menu-icon"></i>
+				<span class="menu-title">Hizmetler</span>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="/Project/ProjectList">
+				<i class="mdi mdi-chart-bar menu-icon"></i>
+				<span class="menu-title">Projeler</span>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="/Team/TeamList">
+				<i class="mdi mdi-human-greeting menu-icon"></i>
+				<span class="menu-title">Personeller</span>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="/About/AboutList">
+				<i class="mdi mdi-information menu-icon"></i>
+				<span class="menu-title">Hakkımızda</span>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="/Message/MessageList">
+				<i class="mdi mdi-email-outline menu-icon"></i>
+				<span class="menu-title">Mesajlar</span>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="/Notification/NotificationList">
+				<i class="mdi mdi-bell-outline menu-icon"></i>
+				<span class="menu-title">Bildirimler</span>
+			</a>
+		</li>
+		<li class="nav-item sidebar-actions">
+			<div class="nav-link">
+				<div class="mt-4">
+					<ul class="mt-4 pl-0">
+						<li>
+							<a href="@Url.Action("Logout", "Login")" class="text-danger">Sign Out</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+
+	</ul>
+</nav>

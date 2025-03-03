@@ -1,0 +1,24 @@
+﻿@model AcunMedyaAkademiAgency.Entities.Notification
+@{
+	ViewBag.Title = "CreateNotification";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Bildirim Ekleme Sayfası</h2>
+
+<form method="post">
+	<table class="table table-borderless" style="width: 50%;">
+		<tr>
+			<td><label>Ad Soyad</label></td>
+			<td><input type="text" class="form-control" name="Title" /></td>
+		</tr>
+		<tr>
+			<td><label>Açıklaması</label></td>
+			<td><textarea rows="4" class="form-control" name="Description"></textarea></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><button class="btn btn-danger">Bildirimi Kaydet</button></td>
+		</tr>
+	</table>
+</form>

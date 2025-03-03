@@ -1,0 +1,55 @@
+﻿@model AcunMedyaAkademiAgency.Entities.About
+@{
+	ViewBag.Title = "CreateAbout";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container-fluid mt-4">
+	<h2 class="text-center mb-4">Yeni Hakkımda Ekle</h2>
+	<form method="post">
+		<div class="card">
+			<div class="card-body">
+				<table class="table table-bordered table-hover">
+					<tbody>
+						<tr>
+							<th scope="row" class="col-md-3">Başlık</th>
+							<td>
+								<input type="text" class="form-control" name="Title" placeholder="Başlık giriniz" required />
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="col-md-3">Resim URL</th>
+							<td>
+								<input type="text" class="form-control" name="ImageUrl" placeholder="Resim URL'sini giriniz" required />
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="col-md-3">Açıklama</th>
+							<td>
+								<textarea rows="4" class="form-control" name="Description" placeholder="Açıklama giriniz" style="resize: vertical;"></textarea>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="text-right">
+					<button type="submit" class="btn btn-danger"><i class="mdi mdi-content-save mr-2"></i> Hakkımda Kaydet</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<style>
+	.table th {
+		background-color: #f8f9fa;
+		vertical-align: middle;
+	}
+
+	.table td {
+		vertical-align: middle;
+	}
+
+	.btn i {
+		margin-right: 5px;
+	}
+</style>

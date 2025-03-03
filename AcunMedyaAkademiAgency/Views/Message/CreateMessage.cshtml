@@ -1,0 +1,39 @@
+﻿@model AcunMedyaAkademiAgency.Entities.Message
+@{
+	ViewBag.Title = "CreateMessage";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Mesaj Ekleme Sayfası</h2>
+
+<form method="post">
+	<label>Ad Soyad</label>
+	<input type="text" class="form-control" name="NameSurname" />
+	<br />
+	<label>Email</label>
+	<input type="email" class="form-control" name="Email" />
+	<br />
+	<label>Title</label>
+	<input type="text" class="form-control" name="Title" />
+	<br />
+	<label>Açıklaması</label>
+	<textarea rows="4" class="form-control" name="Description"></textarea>
+	<br />
+	<label>Gönderim Tarihi</label>
+	<input type="datetime-local" class="form-control" name="SendDate" />
+	<br />
+	<div class="form-group">
+		<label for="IsRead">Gönderim Durumu</label><br />
+		<div class="form-check form-check-inline">
+			<input type="radio" class="form-check-input" id="isReadTrue" name="IsRead" value="true">
+			<label class="form-check-label" for="isReadTrue">Okundu</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input type="radio" class="form-check-input" id="isReadFalse" name="IsRead" value="false" checked>
+			<label class="form-check-label" for="isReadFalse">Okunmadı</label>
+		</div>
+	</div>
+
+	<br />
+	<button class="btn btn-danger">Mesajı Kaydet</button>
+</form>

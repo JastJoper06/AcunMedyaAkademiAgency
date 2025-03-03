@@ -1,0 +1,81 @@
+﻿
+@{
+	ViewBag.Title = "SendMessage";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<<section class="page-section" id="contact">
+	<div class="container">
+		<div class="text-center">
+			<h2 class="section-heading text-uppercase">Contact Us</h2>
+			<h3 class="section-subheading text-muted">Feel free to reach out to us.</h3>
+		</div>
+
+		<form id="contactForm">
+			<div class="row align-items-stretch mb-5">
+				<div class="col-md-6">
+					<div class="form-group">
+						<input class="form-control" id="name" type="text" placeholder="Your Name *" required />
+					</div>
+					<div class="form-group">
+						<input class="form-control" id="email" type="email" placeholder="Your Email *" required />
+					</div>
+					<div class="form-group">
+						<input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required />
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group form-group-textarea">
+						<textarea class="form-control" id="message" placeholder="Your Message *" required></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="text-center">
+				<button class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+			</div>
+		</form>
+
+		<!-- Success and Error Messages -->
+		<div class="alert alert-success mt-3 d-none" id="successMessage">Your message has been sent successfully!</div>
+		<div class="alert alert-danger mt-3 d-none" id="errorMessage"></div>
+	</div>
+</section>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $("#contactForm").submit(function(event) {
+        event.preventDefault();
+
+        var formData = {
+            name: $("#name").val(),
+            email: $("#email").val(),
+            phone: $("#phone").val(),
+            message: $("#message").val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/Contact/SendMessage",
+            data: formData,
+            dataType: "json",
+            success: function(response) {
+                if (response.success) {
+                    $("#successMessage").removeClass("d-none");
+                    $("#errorMessage").addClass("d-none");
+                    $("#contactForm")[0].reset();
+                } else {
+                    $("#errorMessage").removeClass("d-none").text(response.message);
+                }
+            },
+            error: function() {
+                $("#errorMessage").removeClass("d-none").text("An unexpected error occurred.");
+            }
+        });
+    });
+});
+</script>
+

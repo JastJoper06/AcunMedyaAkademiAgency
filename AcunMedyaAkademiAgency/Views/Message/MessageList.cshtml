@@ -1,0 +1,103 @@
+﻿@model List<AcunMedyaAkademiAgency.Entities.Message>
+
+@{
+	ViewBag.Title = "MessageList";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+	int count = 0;
+}
+
+<style>
+	/* Tabloyu daha kompakt hale getirme */
+	.table-responsive {
+		overflow-x: auto; /* Yatay kaydırma çubuğu */
+	}
+
+	.table th, .table td {
+		font-size: 14px; /* Yazı boyutunu küçült */
+		padding: 8px; /* Hücre iç boşluklarını azalt */
+		max-width: 150px; /* Hücrelerin maksimum genişliğini sınırla */
+		overflow: hidden; /* Taşan içeriği gizle */
+		text-overflow: ellipsis; /* Taşan metni "..." ile göster */
+		white-space: nowrap; /* Metni tek satırda tut */
+	}
+
+	/* Açıklaması sütunu için özel stil */
+	.description-column {
+		max-width: 200px; /* Daha dar bir alan */
+		white-space: normal; /* Metni sarmalamasını sağla */
+		word-wrap: break-word; /* Uzun kelimeleri kır */
+	}
+
+	/* Tooltip efekti */
+	.table td[title] {
+		cursor: pointer;
+	}
+
+	/* Butonları küçültme ve renk ayarlama */
+	.btn-custom {
+		background-color: #ff4081; /* Pembe renk */
+		color: white;
+		font-size: 12px;
+		padding: 4px 8px;
+		margin-bottom: 5px; /* Butonlar arasında boşluk */
+		display: block; /* Butonları alt alta yerleştir */
+		width: 100%; /* Butonları sütun genişliğine yay */
+	}
+
+	/* İşlemler sütunu için genişlik ayarlama */
+	.action-column {
+		width: 120px; /* İşlemler sütunu için sabit genişlik */
+	}
+</style>
+
+<div class="col-lg-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Mesajlar Sayfası</h4>
+			<p class="card-description">
+				Mesajlarınız.
+			</p>
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th style="width: 5%;">#</th>
+							<th style="width: 15%;">Ad Soyad</th>
+							<th style="width: 15%;">Email</th>
+							<th style="width: 10%;">Başlık</th>
+							<th style="width: 20%;">Açıklama</th>
+							<th style="width: 15%;">Gönderim Tarihi</th>
+							<th style="width: 10%;">Durum</th>
+							<th style="width: 10%;">İşlemler</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							count++;
+							<tr>
+								<td>@count</td>
+								<td title="@item.NameSurname">@item.NameSurname</td>
+								<td title="@item.Email">@item.Email</td>
+								<td title="@item.Title">@item.Title</td>
+								<td class="description-column" title="@item.Description">@item.Description</td>
+								<td title="@item.SendDate">@item.SendDate</td>
+								<td title="@item.IsRead">@(item.IsRead ? "Okundu" : "Okunmadı")</td>
+								<td class="action-column">
+									<a class="btn btn-custom btn-sm" href="/Message/DeleteMessage/@item.MessageId">
+										<i class="fa fa-trash"></i> Sil
+									</a>
+									<a class="btn btn-success btn-sm" href="/Message/UpdateMessage/@item.MessageId">
+										<i class="fa fa-pencil"></i> Güncelle
+									</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+				<br />
+				<a href="/Message/CreateMessage" class="btn btn-info btn-sm"><i class="mdi mdi-file-check btn-icon-append"></i> Yeni Mesaj Giriniz</a>
+			</div>
+		</div>
+	</div>
+</div>
